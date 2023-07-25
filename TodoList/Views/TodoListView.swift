@@ -9,16 +9,18 @@ import SwiftUI
 
 struct TodoListView: View {
     
-    @State var items: [String] = [
-        "This is the first title",
-        "This is the second title",
-        "This is the third title"
+    @State var todoItems: [TodoItemModel] = [
+        .init(title: "First title", isCompleted: true),
+        .init(title: "Second title", isCompleted: false),
+        .init(title: "Third title", isCompleted: true),
+        .init(title: "Fourth title", isCompleted: true),
+        .init(title: "Fifth title", isCompleted: false),
     ]
     
     var body: some View {
         List{
-            ForEach(items, id: \.self){ item in
-                TodoListItem(title: item)
+            ForEach(todoItems){ item in
+                TodoListItem(todoItem: item)
             }
         }
         .navigationTitle("Todo List")
