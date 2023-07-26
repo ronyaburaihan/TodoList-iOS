@@ -38,4 +38,9 @@ class TodoListViewModel: ObservableObject{
     func moveItem(from: IndexSet, to: Int){
         todoItems.move(fromOffsets: from, toOffset: to)
     }
+    
+    func updateItem(todoItem: TodoItemModel){
+        let index = todoItems.firstIndex(where: {$0.id == todoItem.id}) ?? 0
+        todoItems[index].isCompleted.toggle()
+    }
 }
