@@ -9,7 +9,13 @@ import SwiftUI
 
 struct AddTaskView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var viewModel: TodoListViewModel
+    
     @State var textFieldText: String = ""
+    
+    @State var alertTitle: String = ""
+    @State var showAlert: Bool = false
     
     var body: some View {
         
@@ -17,7 +23,7 @@ struct AddTaskView: View {
             
             VStack {
                 TextField("Type something here", text: $textFieldText, axis: .vertical)
-                    .frame(minHeight: 50)
+                    .frame(minHeight: 40)
                     .padding(.horizontal)
                     .padding(.vertical,5)
                     .background(Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)))
@@ -25,11 +31,11 @@ struct AddTaskView: View {
                 
                 Spacer(minLength: 10)
                 
-                Button (action: {}){
+                Button (action: submitButtonPressed){
                     Text("Save".uppercased())
                         .foregroundColor(.white)
                         .font(.headline)
-                        .frame(height: 50)
+                        .frame(height: 45)
                         .frame(maxWidth: .infinity)
                         .background(Color.accentColor)
                         .cornerRadius(10)
@@ -38,6 +44,25 @@ struct AddTaskView: View {
             .padding(14)
             
         }.navigationBarTitle("Add an Item")
+            .alert(isPresented: $showAlert, content: getAlert)
+    }
+    
+    func submitButtonPressed(){
+        if isTextAppropriate() {
+            viewModel.addItem(title: textFieldText)
+            presentationMode.wrappedValue.dismiss()
+        } else {
+            alertTitle = "Your new todo item must be at least 3 character long!!!"
+            showAlert = true
+        }
+    }
+    
+    func isTextAppropriate() -> Bool {
+        return textFieldText.count > 2
+    }
+    
+    func getAlert() -> Alert {
+        return Alert(title: Text(alertTitle))
     }
 }
 
@@ -45,6 +70,6 @@ struct AddTaskView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
             AddTaskView()
-        }
+        }.environmentObject(TodoListViewModel())
     }
 }
