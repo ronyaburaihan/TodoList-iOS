@@ -26,7 +26,7 @@ struct AddTaskView: View {
                     .frame(minHeight: 40)
                     .padding(.horizontal)
                     .padding(.vertical,5)
-                    .background(Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)))
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(10)
                 
                 Spacer(minLength: 10)
