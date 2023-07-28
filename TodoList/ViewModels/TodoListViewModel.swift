@@ -9,22 +9,25 @@ import Foundation
 
 class TodoListViewModel: ObservableObject{
     
-    @Published var todoItems: [TodoItemModel] = []
+    let KEY_TODO_ITEMS: String = "items_list"
+    
+    @Published var todoItems: [TodoItemModel] = [] {
+        didSet {
+            saveItems()
+        }
+    }
     
     init(){
         getItems()
     }
     
     func getItems() {
-        let newItems: [TodoItemModel] = [
-            .init(title: "First title", isCompleted: true),
-            .init(title: "Second title", isCompleted: false),
-            .init(title: "Third title", isCompleted: true),
-            .init(title: "Fourth title", isCompleted: true),
-            .init(title: "Fifth title", isCompleted: false),
-        ]
+        guard
+            let data = UserDefaults.standard.data(forKey: KEY_TODO_ITEMS),
+            let savedItems = try? JSONDecoder().decode([TodoItemModel].self, from: data)
+        else { return }
         
-        todoItems.append(contentsOf: newItems)
+        self.todoItems = savedItems
     }
     
     func addItem(title: String){
@@ -42,5 +45,11 @@ class TodoListViewModel: ObservableObject{
     func updateItem(todoItem: TodoItemModel){
         let index = todoItems.firstIndex(where: {$0.id == todoItem.id}) ?? 0
         todoItems[index].isCompleted.toggle()
+    }
+    
+    func saveItems() {
+        if let encodedData = try? JSONEncoder().encode(todoItems){
+            UserDefaults.standard.set(encodedData, forKey: KEY_TODO_ITEMS)
+        }
     }
 }
