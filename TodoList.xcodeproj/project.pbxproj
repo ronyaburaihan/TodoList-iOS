@@ -14,6 +14,7 @@
 		39627F412A6FB5E700D3DFB6 /* TodoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39627F402A6FB5E700D3DFB6 /* TodoListItem.swift */; };
 		39627F432A6FCCF900D3DFB6 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39627F422A6FCCF900D3DFB6 /* AddTaskView.swift */; };
 		39627F462A6FD41600D3DFB6 /* TodoItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39627F452A6FD41600D3DFB6 /* TodoItemModel.swift */; };
+		39C87E7D2A739087001613C7 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C87E7C2A739087001613C7 /* EmptyView.swift */; };
 		39E8BDA02A70EDD000DD00A6 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E8BD9F2A70EDD000DD00A6 /* TodoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		39627F402A6FB5E700D3DFB6 /* TodoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListItem.swift; sourceTree = "<group>"; };
 		39627F422A6FCCF900D3DFB6 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		39627F452A6FD41600D3DFB6 /* TodoItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemModel.swift; sourceTree = "<group>"; };
+		39C87E7C2A739087001613C7 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		39E8BD9F2A70EDD000DD00A6 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				39627F3E2A6FB4C200D3DFB6 /* TodoListView.swift */,
 				39627F402A6FB5E700D3DFB6 /* TodoListItem.swift */,
 				39627F422A6FCCF900D3DFB6 /* AddTaskView.swift */,
+				39C87E7C2A739087001613C7 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				39627F3F2A6FB4C200D3DFB6 /* TodoListView.swift in Sources */,
 				39627F432A6FCCF900D3DFB6 /* AddTaskView.swift in Sources */,
 				39E8BDA02A70EDD000DD00A6 /* TodoListViewModel.swift in Sources */,
+				39C87E7D2A739087001613C7 /* EmptyView.swift in Sources */,
 				39627F462A6FD41600D3DFB6 /* TodoItemModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
